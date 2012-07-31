@@ -13,6 +13,8 @@
 @end
 
 @implementation ViewController
+@synthesize helloInput;
+@synthesize helloLabel;
 
 - (void)viewDidLoad
 {
@@ -22,6 +24,8 @@
 
 - (void)viewDidUnload
 {
+    [self setHelloInput:nil];
+    [self setHelloLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -35,4 +39,7 @@
     }
 }
 
+- (IBAction)helloButtonPressed:(UIButton *)sender {
+    self.helloLabel.text = [NSString stringWithFormat:@"Hello, %@", self.helloInput.text];
+}
 @end
